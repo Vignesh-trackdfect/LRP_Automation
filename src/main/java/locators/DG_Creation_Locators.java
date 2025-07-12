@@ -1,0 +1,152 @@
+package locators;
+
+import java.util.Map;
+
+import commonMethods.Testcases;
+import commonMethods.Utils;
+
+public interface DG_Creation_Locators {
+	Map<String, String> ExcelData = Utils.getDataAsMap(Testcases.conection_vale, "DG_Creation", "Reference_Name", Testcases.environmentName);
+	
+	
+	public static String Booking_No_Search_DG = ExcelData.get("Booking_No_Search_DG");
+	public static String Outer_Packing_Search_Button = ExcelData.get("Outer_Packing_Search_Button");
+	public static String Inner_Packing_Search_Button = ExcelData.get("Inner_Packing_Search_Button");
+	public static String Reject_Button_DG = ExcelData.get("Reject_Button_DG");
+	public static String Rejected_Remarks_DG = ExcelData.get("Rejected_Remarks_DG");
+	public static String Rejected_Remarks_Ok_Button = ExcelData.get("Rejected_Remarks_Ok_Button");
+	public static String Rejected_Popup = ExcelData.get("Rejected_Popup");
+	public static String Rejected_Exp_Text = ExcelData.get("Rejected_Exp_Text");
+	public static String Rejected_Text = ExcelData.get("Rejected_Text");
+	public static String DG_Unit_Input = ExcelData.get("DG_Unit_Input");
+	public static String DG_Inner_Packing_Size_Input = ExcelData.get("DG_Inner_Packing_Size_Input");
+	public static String DG_Non_Operated_Reefer = ExcelData.get("DG_Non_Operated_Reefer");
+	public static String DG_SADT_Input = ExcelData.get("DG_SADT_Input");
+	public static String DG_ControlTemp_input = ExcelData.get("DG_ControlTemp_input");
+	public static String DG_Emergency_Temp_Input = ExcelData.get("DG_Emergency_Temp_Input");
+	public static String DG_Grid = ExcelData.get("DG_Grid");
+	public static String Remove_Button_DG = ExcelData.get("Remove_Button_DG");
+	public static String DG_Grid_Row = ExcelData.get("DG_Grid_Row");
+	public static String Flash_Point_TF = ExcelData.get("Flash_Point_TF");           
+	
+	public static String UN_NO_Search_DG = ExcelData.get("UN_NO_Search_DG");
+	public static String move_To_Draft_Button = ExcelData.get("move_To_Draft_Button");
+	public static String cargo_Status = ExcelData.get("cargo_Status");
+	public static String partial_Reject_Button = ExcelData.get("partial_Reject_Button");
+	public static String grid_Column_DG = ExcelData.get("grid_Column_DG");
+	public static String grid_Row_DG = ExcelData.get("grid_Row_DG");
+	public static String remove_Button_DG = ExcelData.get("remove_Button_DG");
+	public static String File_Chooser_Button = ExcelData.get("File_Chooser_Button");
+	public static String File_Chooser = ExcelData.get("File_Chooser");
+	public static String File_Upload_Name_text = ExcelData.get("File_Upload_Name_text");
+	public static String mail_Window_Subject_Textfield = ExcelData.get("mail_Window_Subject_Textfield");
+	public static String cancel_Button_DG = ExcelData.get("cancel_Button_DG");
+	public static String Cancel_Ok_Button = ExcelData.get("Cancel_Ok_Button");
+	public static String cancel_Reason_Dropdown = ExcelData.get("cancel_Reason_Dropdown");
+	public static String Technical_Name_Textfield = ExcelData.get("Technical_Name_Textfield");
+	public static String DG_Accept_button = ExcelData.get("DG_Accept_button");
+	public static String DG_Accept_Remark_Input = ExcelData.get("DG_Accept_Remark_Input");
+	public static String Grid_Edit_Icon = ExcelData.get("Grid_Edit_Icon");
+	public static String container_Number_Value = ExcelData.get("container_Number_Value");
+	public static String DG_Port_Restriction_Window = ExcelData.get("DG_Port_Restriction_Window");
+	public static String DG_Port_Restriction_Window_Ok_Button = ExcelData.get("DG_Port_Restriction_Window_Ok_Button");
+	public static String DG_Validation_Button = ExcelData.get("DG_Validation_Button");
+	public static String amendment_Dropdown = ExcelData.get("amendment_Dropdown");
+	
+	public static String Emergency_Contact_Field1 = ExcelData.get("Emergency_Contact_Field1");
+	public static String Emergency_Contact_Field2 = ExcelData.get("Emergency_Contact_Field2");
+	public static String Emergency_Contact_Field3 = ExcelData.get("Emergency_Contact_Field3");
+	public static String Limited_Quantity = ExcelData.get("Limited_Quantity");
+	public static String Expected_Quantity = ExcelData.get("Expected_Quantity");
+	public static String Reported_Quantity = ExcelData.get("Reported_Quantity");
+	public static String Waste_Field = ExcelData.get("Waste_Field");
+	public static String Contact_Name_Field = ExcelData.get("Contact_Name_Field");
+	public static String OutPacking_Name = ExcelData.get("OutPacking_Name");
+	public static String Gross_Wt_Field = ExcelData.get("Gross_Wt_Field");
+	public static String No_Of_Outer = ExcelData.get("No_Of_Outer");
+	public static String Multi_Apply_Btn = ExcelData.get("Multi_Apply_Btn");
+	public static String DetailSaved_Popup = ExcelData.get("DetailSaved_Popup");
+	public static String DetailSaved_Popup_Ok = ExcelData.get("DetailSaved_Popup_Ok");
+	public static String DG_no = ExcelData.get("DG_no");
+	public static String DG_closetab = ExcelData.get("DG_closetab");
+	public static String DG_search_field = ExcelData.get("DG_search_field");
+	public static String DG_search_btn = ExcelData.get("DG_search_btn");
+	public static String Send_Btn = ExcelData.get("Send_Btn");
+	public static String DG_Container_Select = ExcelData.get("DG_Container_Select");
+	public static String DG_No_Field = ExcelData.get("DG_No_Field");
+	public static String DG_Save_Btn = ExcelData.get("DG_Save_Btn");
+	public static String Mail_Send_Btn = ExcelData.get("Mail_Send_Btn");
+	public static String Mail_Cancel_Btn = ExcelData.get("Mail_Cancel_Btn");
+	public static String Profile_Reset = ExcelData.get("Profile_Reset");
+	public static String From_Date_Radio_Btn = ExcelData.get("From_Date_Radio_Btn");
+	public static String Current_Date = ExcelData.get("Current_Date");
+	public static String FromDate_Field = ExcelData.get("FromDate_Field");
+	public static String ToDate_Field = ExcelData.get("ToDate_Field");
+	public static String DG_Gate_ShowBtn = ExcelData.get("DG_Gate_ShowBtn");
+	public static String Multi_ChkList_Btn = ExcelData.get("Multi_ChkList_Btn");
+	public static String Accept_Btn = ExcelData.get("Accept_Btn");
+	public static String Remarks_Area = ExcelData.get("Remarks_Area");
+	public static String Remarks_Ok = ExcelData.get("Remarks_Ok");
+	
+	public static String DG_UN_Number = ExcelData.get("DG_UN_Number");
+	public static String Dg_Port_Screen = ExcelData.get("Dg_Port_Screen");
+	public static String DG_Port_Ok_Option = ExcelData.get("DG_Port_Ok_Option");
+	public static String DG_Pending_Button = ExcelData.get("DG_Pending_Button");
+	public static String DG_Pending_Remarks = ExcelData.get("DG_Pending_Remarks");
+	public static String Pending_Text = ExcelData.get("Pending_Text");
+	public static String Partial_Accept = ExcelData.get("Partial_Accept");
+	public static String DG_File_upload = ExcelData.get("DG_File_upload");
+	public static String DG_Partial_accept_Input_Filed = ExcelData.get("DG_Partial_accept_Input_Filed");
+	public static String DG_Check_list_checkbox = ExcelData.get("DG_Check_list_checkbox");
+	public static String DG_Check_List_Button = ExcelData.get("DG_Check_List_Button");
+	public static String DG_Remove_Option_Enable = ExcelData.get("DG_Remove_Option_Enable");
+	public static String DG_UN_number_Values_grid = ExcelData.get("DG_UN_number_Values_grid");
+	public static String DG_Flash_Point_C_Input = ExcelData.get("DG_Flash_Point_C_Input");
+	public static String DG_Flash_Point_F_Input = ExcelData.get("DG_Flash_Point_F_Input");
+	public static String DG_Net_Explosive_Weight = ExcelData.get("DG_Net_Explosive_Weight");
+	public static String DG_Mail_Screen = ExcelData.get("DG_Mail_Screen");
+	public static String DG_No_Of_Inner_packing_input = ExcelData.get("DG_No_Of_Inner_packing_input");
+	public static String DGC_Dg_Validation = ExcelData.get("DGC_Dg_Validation");
+	public static String DG_Mail_Attachment_input = ExcelData.get("DG_Mail_Attachment_input");
+	public static String DG_Accepted_Remarks_Input = ExcelData.get("DG_Accepted_Remarks_Input");
+	public static String DG_Status_Input = ExcelData.get("DG_Status_Input");
+	public static String DG_House_Filter_Option = ExcelData.get("DG_House_Filter_Option");
+	public static String DG_House_Unno_Input = ExcelData.get("DG_House_Unno_Input");
+	public static String emsTextField = ExcelData.get("emsTextField");
+
+	public static String DG_BookingNo_SearchButton = ExcelData.get("DG_BookingNo_SearchButton");
+	public static String UN_No_SearchButton = ExcelData.get("UN_No_SearchButton");
+	public static String Emergency_Contact_No_field = ExcelData.get("Emergency_Contact_No_field");
+	public static String Limited_Quantity_dropdown = ExcelData.get("Limited_Quantity_dropdown");
+	public static String Expected_Quantity_dropdown = ExcelData.get("Expected_Quantity_dropdown");
+	public static String Reportable_Quantity_dropdown = ExcelData.get("Reportable_Quantity_dropdown");
+	public static String Waste_dropdown = ExcelData.get("Waste_dropdown");
+	public static String Contact_Namefield = ExcelData.get("Contact_Namefield");
+	public static String Outer_Packing_Searchbutton = ExcelData.get("Outer_Packing_Searchbutton");
+	public static String Net_Wt_Field = ExcelData.get("Net_Wt_Field");
+
+	public static String No_of_Outer_Packing_field = ExcelData.get("No_of_Outer_Packing_field");
+	public static String Net_Gross_Weight = ExcelData.get("Net_Gross_Weight");
+	public static String Containers = ExcelData.get("Containers");
+	public static String Apply_to_Selected_Containers = ExcelData.get("Apply_to_Selected_Containers");
+	public static String Multiple_Apply_button = ExcelData.get("Multiple_Apply_button");
+	public static String DG_Remove = ExcelData.get("DG_Remove");
+	public static String Ok_save_button1 = ExcelData.get("Ok_save_button1");
+	public static String Select_Row = ExcelData.get("Select_Row");
+	public static String Cancel_button = ExcelData.get("Cancel_button");
+	public static String Multi_Check_List_Button = ExcelData.get("Multi_Check_List_Button");
+	
+	public static String marine_Pollutant_Dropdown = ExcelData.get("marine_Pollutant_Dropdown");
+	public static String inner_Packing_Size_Textfield = ExcelData.get("inner_Packing_Size_Textfield");
+	public static String No_Of_Inner_Packing_Textfield = ExcelData.get("No_Of_Inner_Packing_Textfield");
+	public static String unit_Dropdown_DG = ExcelData.get("unit_Dropdown_DG");
+	public static String net_Explosive_Weight = ExcelData.get("net_Explosive_Weight");
+	public static String full_Packaging_Code_Textfield = ExcelData.get("full_Packaging_Code_Textfield");
+	public static String Segregation_Group_Textfield = ExcelData.get("Segregation_Group_Textfield");
+	public static String DG_No_Filter_DG_Gate = ExcelData.get("DG_No_Filter_DG_Gate");
+	public static String DG_Gate_Grid_Filter_Button = ExcelData.get("DG_Gate_Grid_Filter_Button");
+	public static String DG_Gate_Select_DG = ExcelData.get("DG_Gate_Select_DG");
+	public static String DG_UN_No_Textfield = ExcelData.get("DG_UN_No_Textfield");
+	public static String DG_Mail_Window_Attachment = ExcelData.get("DG_Mail_Window_Attachment");
+
+}

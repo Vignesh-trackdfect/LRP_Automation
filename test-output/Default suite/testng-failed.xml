@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="commonMethods.Testcases">
+        <methods>
+          <include name="TC_Enquiry_History_TS026"/>
+          <include name="TC_Enquiry_History_TS023"/>
+          <include name="TC_On_Off_hire_status_TS036"/>
+          <include name="Teardown"/>
+          <include name="TC_Enquiry_History_TS027"/>
+          <include name="EMS_Contract_Registration_IP010"/>
+          <include name="TC_On_Off_hire_status_TS037"/>
+          <include name="EMS_Contract_Registration_IP008"/>
+          <include name="EMS_Contract_Registration_IP009"/>
+          <include name="EMS_Contract_Registration_IP004"/>
+          <include name="TC_Enquiry_History_TS023_TS028_C"/>
+          <include name="EMS_Contract_Registration_IP007"/>
+          <include name="EMS_Contract_Registration_IP005"/>
+          <include name="EMS_Contract_Registration_IP006"/>
+          <include name="TC_Stock_Report_by_service_TS038"/>
+          <include name="TC_Scale_In_TS_030_IP"/>
+          <include name="TC_EMS_Contract_Billing_Generation_68"/>
+          <include name="TC_EMS_Contract_Billing_Generation_69"/>
+          <include name="aftertest"/>
+          <include name="TC_Scale_In_TS_027_IP"/>
+          <include name="TC_EMS_Contract_Billing_Generation_70"/>
+          <include name="TC_EMS_Contract_Registration_TS001_To_TS005_C"/>
+          <include name="TC_EMS_Contract_Billing_Generation_73"/>
+          <include name="TC_EMS_Contract_Billing_Generation_74"/>
+          <include name="TC_On_Off_hire_status_TS036_to_Stock_Report_by_Size_Type_Detail_Report_TS042_C"/>
+          <include name="TC_EMS_Contract_Billing_Generation_71"/>
+          <include name="TC_EMS_Contract_Billing_Generation_72"/>
+          <include name="TC_EMS_Contract_Billing_Generation_78"/>
+          <include name="TC_EMS_Contract_Billing_Generation_75"/>
+          <include name="TC_Scale_In_TS_031_IP"/>
+          <include name="TC_EMS_Contract_Billing_Generation_76"/>
+          <include name="TC_EMS_Contract_Billing_Generation_79"/>
+          <include name="TC_EMS_Contract_Billing_Generation_77"/>
+          <include name="TC_Scale_In_TS_028_IP"/>
+          <include name="TC_EMS_Contract_Billing_Generation_81"/>
+          <include name="TC_Scale_In_TS_009"/>
+          <include name="TC_Scale_In_TS_006"/>
+          <include name="TC_EMS_Contract_Billing_Generation_82"/>
+          <include name="TC_Scale_In_TS_008"/>
+          <include name="TC_EMS_Contract_Billing_Generation_83"/>
+          <include name="TC_Scale_In_TS_007"/>
+          <include name="TC_Scale_In_TS_025_IP"/>
+          <include name="EMS_Contract_Registration_IP003"/>
+          <include name="EMS_Contract_Registration_IP001"/>
+          <include name="EMS_Contract_Registration_IP"/>
+          <include name="EMS_Contract_Registration_IP002"/>
+          <include name="TC_EMS_Contract_Billing_Generation_80"/>
+          <include name="TC_Scale_In_TS_022_IP"/>
+          <include name="TC_Scale_In_TS_014"/>
+          <include name="TC_Scale_In_TS_012"/>
+          <include name="TC_Movement_Entry_TS_020"/>
+          <include name="TC_Movement_Entry_TS_021"/>
+          <include name="TC_Scale_In_TS_011"/>
+          <include name="TC_Scale_In_TS_010"/>
+          <include name="TC_Scale_In_TS_013"/>
+          <include name="TC_Movement_Entry_TS_017"/>
+          <include name="TC_Movement_Entry_TS_015"/>
+          <include name="TC_Stock_Report_by_Size_Type_TS039"/>
+          <include name="TC_Movement_Entry_TS_019"/>
+          <include name="TC_Scale_In_TS_026_IP"/>
+          <include name="TC_Scale_In_TS_023_IP"/>
+          <include name="TC_EDI_Request_Submission_SC22"/>
+          <include name="TC_Movement_Entry_TS_016"/>
+          <include name="TC_EMS_Gate_SC34"/>
+          <include name="TS_EMS_Contract_Registration_14"/>
+          <include name="TS_EMS_Contract_Registration_15"/>
+          <include name="TS_EMS_Contract_Registration_13"/>
+          <include name="TC_Stock_Report_by_Size_Type_Detail_Report_TS_040"/>
+          <include name="TC_Stock_Report_by_Size_Type_Detail_Report_TS_041"/>
+          <include name="TC_Movement_Entry_IP"/>
+          <include name="TS_EMS_Contract_Registration_12"/>
+          <include name="ScaleIn_ScaleOut_Reference_TS006_TS014_C"/>
+          <include name="TC_Scale_In_TS_024_IP"/>
+          <include name="TC_Stock_Report_by_Stock_Status_TS042"/>
+          <include name="TC_Scale_In_TS_021_IP"/>
+          <include name="Extentreport"/>
+          <include name="TC_EquipmentReportCurrentHistory_SC32"/>
+          <include name="TC_EquipmentReportCurrentHistory_SC31"/>
+          <include name="TC_Equipment_Master_TS051"/>
+          <include name="TC_Scale_In_TS_032_IP"/>
+          <include name="ScaleIn_ScaleOut_Reference_021_032_IP"/>
+          <include name="TC_EquipmentReportCurrentHistory_SC30"/>
+          <include name="TC_Equipment_Master_TS053"/>
+          <include name="TC_EquipmentActivity_SC55"/>
+          <include name="TC_Scale_In_TS_029_IP"/>
+          <include name="TC_EMS_Contract_Registration_TS004"/>
+          <include name="TC_EMS_Contract_Registration_TS003"/>
+          <include name="TC_EquipmentActivity_SC54"/>
+          <include name="TC_EMS_Contract_Billing_Generation_43"/>
+          <include name="TC_EMS_Contract_Registration_TS001"/>
+          <include name="TC_EquipmentActivity_SC56"/>
+          <include name="TC_Equipment_Master_TS051_TS053_C"/>
+          <include name="TC_Equipment_Master_TS052"/>
+          <include name="TC_EMS_Contract_Registration_TS002"/>
+          <include name="TC_EquipmentReport_SC29"/>
+          <include name="TC_EMS_Contract_Billing_Generation_44"/>
+          <include name="TC_Enquiry_History_TS028"/>
+          <include name="getDataFromConfig"/>
+        </methods>
+      </class> <!-- commonMethods.Testcases -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

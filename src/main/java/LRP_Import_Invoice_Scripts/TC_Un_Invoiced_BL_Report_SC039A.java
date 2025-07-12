@@ -1,0 +1,589 @@
+package LRP_Import_Invoice_Scripts;
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+
+import com.aventstack.extentreports.ExtentTest;
+
+import commonMethods.Keywords;
+
+public class TC_Un_Invoiced_BL_Report_SC039A extends Keywords {
+
+	public void Un_Invoiced_BL_Report_SC039A(WebDriver driver, ExtentTest test, ExtentTest test1, String selected_dataset,Map<String, String> Excel_data,String url)
+			throws Exception {
+
+		String testcase_Name = "TC_Un_Invoiced_BL_Report_SC039A";
+		
+		String Username = Excel_data.get("Username");
+		String Password = Excel_data.get("Password");
+		String AgencyUser = Excel_data.get("AgencyUser").trim();
+		String uninvoiced_BL_Report_Module = Excel_data.get("Uninvoiced_BL_Report_Module");
+		String Condition = Excel_data.get("Condition");
+		String blType = Excel_data.get("BL_Type");
+		String date_Input = Excel_data.get("Date");
+		String scope = Excel_data.get("Scope");
+		String service_input = Excel_data.get("service_input");
+		String vessel_code_input = Excel_data.get("vessel_code_input");
+		String voyage_code = Excel_data.get("voyage_code_input");
+		String bl_RadioButton = Excel_data.get("BL_RadioButton");
+		String MCN_RadioButton = Excel_data.get("MCN_RadioButton");
+		String exclude_Checkbox = Excel_data.get("Exclude_Checkbox");
+		String datePicker = Excel_data.get("DatePicker");
+		String PLA_Code = Excel_data.get("PLA_Code");
+		String POL_Code = Excel_data.get("POL_Code");
+		String POD_code = Excel_data.get("POD_code");
+		String PLD_Code = Excel_data.get("PLD_Code");
+		String bl_Number = Excel_data.get("BL_Number");
+		String columnHeaders = Excel_data.get("ColumnHeaders_All");
+		String module_BillOfLading = Excel_data.get("Module_BillOfLading");
+		String MCN_Module = Excel_data.get("MCN_Module");
+		String Select_Search_Type_MCN = Excel_data.get("Select_Search_Type_MCN");
+		String Select_Search_Type_BOL = Excel_data.get("Select_Search_Type_BOL");
+		String globalSearchCondition = Excel_data.get("GlobalSearchCondition");
+		String BOL_Charge_Table_Headers_For_Report = Excel_data.get("BOL_Charge_Table_Headers_For_Report");
+		String MCN_ChargesTable_Name = Excel_data.get("MCN_ChargesTable_Name");
+		String MCN_Charges_Table_Header = Excel_data.get("MCN_Charges_Table_Headers");
+		String ServiceCode_Header = Excel_data.get("ServiceCode_Header");
+		String VesselCode_Header = Excel_data.get("VesselCode_Header");
+		String Voyage_Header = Excel_data.get("Voyage_Header");
+		String PLA_Header = Excel_data.get("PLA_Header");
+		String POL_Header = Excel_data.get("POL_Header");
+		String POD_Header = Excel_data.get("POD_Header");
+		String PLD_Header = Excel_data.get("PLD_Header");
+		
+		String AgencyCode_Header = Excel_data.get("AgencyCode_Header");
+		String Region_Header = Excel_data.get("Region_Header");
+		String CorporateAgencyCode_Header = Excel_data.get("CorporateAgencyCode_Header");
+		String Scope_Value = Excel_data.get("Scope_Value");
+		
+		Extent_Start(testcase_Name, test, test1);
+
+		navigateUrl(driver, url);
+
+		LRP_Login(driver, Username, Password);
+
+		verifyMainMenu(driver);
+
+	    if(!AgencyUser.trim().equals("")) {
+	    	 Step_Start(1, "If it is Agency Switch the agency mentioned in Test Data  then follow below steps,", test,
+						test1);
+
+	    	 SwitchProfile(driver, AgencyUser);
+
+	    	 Step_End(1, "If it is Agency Switch the agency mentioned in Test Data  then follow below steps,", test,
+						test1);
+	    }else {
+	    	Step_Start(1, "if it is Line No need to switch agency u can Directly Open Module and go below", test,
+					test1);
+
+			System.out.println("Switched to Line");
+			Extent_pass_New(driver, "Switched to Line", test, test1);
+
+			Step_End(1, "if it is Line No need to switch agency u can Directly Open Module and go below", test, test1);
+	    }
+
+		Step_Start(2, "Open Uninvoiced BL Report", test, test1);
+
+		moduleNavigate(driver, uninvoiced_BL_Report_Module);
+
+		Step_End(2, "Open Uninvoiced BL Report", test, test1);
+
+		Step_Start(3, "CLick on New Button,", test, test1);
+
+		newButton(driver);
+
+		Step_End(3, "CLick on New Button,", test, test1);
+		Step_Start(4, "Select BL type (ALL/Export/Import) it has to be from Test Data,", test, test1);
+
+		waitForElement(driver, bl_Type_Dropdown_UIB);
+		click(driver, bl_Type_Dropdown_UIB);
+
+		String select_blType = String.format(bl_Type_Dropdown_Option_UIB, blType);
+		waitForElement(driver, select_blType);
+		click(driver, select_blType);
+
+		Step_End(4, "Select BL type (ALL/Export/Import) it has to be from Test Data,", test, test1);
+		Step_Start(5, "Select the Date (Refer from Test Data- if Date Not Give do pass Any date)", test, test1);
+		waitForElement(driver, date_UIB);
+		if (!date_Input.trim().equals("")) {
+			if (datePicker.equalsIgnoreCase("Yes")) {
+				selectDatePicker(driver, date_UIB, date_Input);
+			} else {
+				click(driver, date_UIB);
+				Newclear(driver, date_UIB);
+				waitForElement(driver, date_UIB);
+				sendKeys(driver, date_UIB, date_Input);
+			}
+		}
+
+		Step_End(5, "Select the Date (Refer from Test Data- if Date Not Give do pass Any date)", test, test1);
+		Step_Start(6,
+				"Select BL/MCN Radio button(refer from Test data, Which is Applicable for only Export and Import if nothing entered to click anything)",
+				test, test1);
+
+		if (!blType.equalsIgnoreCase("All")) {
+
+			if (bl_RadioButton.equalsIgnoreCase("Yes")) {
+
+				waitForElement(driver, bl_RadioButton_UIB);
+				click(driver, bl_RadioButton_UIB);
+
+			} else if (MCN_RadioButton.equalsIgnoreCase("Yes")) {
+
+				waitForElement(driver, mcn_RadioButton_UIB);
+				click(driver, mcn_RadioButton_UIB);
+			}
+		}
+
+		Step_End(6,
+				"Select BL/MCN Radio button(refer from Test data, Which is Applicable for only Export and Import if nothing entered to click anything)",
+				test, test1);
+		Step_Start(7, "Select Agency Scope(refer from test data-ALL/Region/Corporate Agency/Agency)", test, test1);
+
+		waitForElement(driver, scope_Dropdown_UIB);
+		click(driver, scope_Dropdown_UIB);
+
+		String select_Scope = String.format(scope_Dropdown_Options_UIB, scope);
+		waitForElement(driver, select_Scope);
+		click(driver, select_Scope);
+
+		Step_End(7, "Select Agency Scope(refer from test data-ALL/Region/Corporate Agency/Agency)", test, test1);
+		Step_Start(8,
+				"Select(+)Button, keep multiple selection as well, (For ALL option No need to Pass any code//Region/Corporate Agency/Agency then pass the code that has to be refer)",
+				test, test1);
+
+		if (AgencyUser.trim().equals("")) {
+			if (scope.equalsIgnoreCase("Agency")) {
+				waitForElement(driver, scope_Add_Button_UIB);
+				click(driver, scope_Add_Button_UIB);
+				twoColumnSearchWindowMultipleValue(driver, AgencyCode_Header, Condition, Scope_Value);
+			}
+			if (scope.equalsIgnoreCase("Region")) {
+				waitForElement(driver, scope_Add_Button);
+				click(driver, scope_Add_Button);
+				twoColumnSearchWindowMultipleValue(driver, Region_Header, Condition, Scope_Value);
+			}
+
+			if (scope.equalsIgnoreCase("Corporate Agency")) {
+				waitForElement(driver, scope_Add_Button);
+				click(driver, scope_Add_Button);
+				twoColumnSearchWindowMultipleValue(driver, CorporateAgencyCode_Header, Condition, Scope_Value);
+			}
+		}
+
+		Step_End(8,
+				"Select(+)Button, keep multiple selection as well, (For ALL option No need to Pass any code//Region/Corporate Agency/Agency then pass the code that has to be refer)",
+				test, test1);
+		Step_Start(9,
+				"Keep below is optional,(But need in Test Data)\r\n" + "Service,Vessel,Voyage,Bound,PLA,,POL,POD,PLD",
+				test, test1);
+
+		if (!service_input.trim().equals("")) {
+			waitForElement(driver, service_search_uninvoiced);
+			click(driver, service_search_uninvoiced);
+
+			twoColumnSearchWindow(driver, ServiceCode_Header, Condition, service_input);
+		}
+		if (!vessel_code_input.trim().equals("")) {
+			waitForElement(driver, vessels_search_uninvoiced);
+			click(driver, vessels_search_uninvoiced);
+
+			twoColumnSearchWindow(driver, VesselCode_Header, Condition, vessel_code_input);
+
+		}
+		if (!voyage_code.trim().equals("")) {
+			waitForElement(driver, voyage_search_uninvoiced);
+			click(driver, voyage_search_uninvoiced);
+
+			twoColumnSearchWindow(driver, Voyage_Header, Condition, voyage_code);
+		}
+
+		if (blType.equalsIgnoreCase("Export")) {
+			if (!PLA_Code.trim().equals("")) {
+				waitForElement(driver, PLA_SearchButton_UIB);
+				click(driver, PLA_SearchButton_UIB);
+				twoColumnSearchWindow(driver, PLA_Header, Condition, PLA_Code);
+			}
+			if (!POL_Code.trim().equals("")) {
+				waitForElement(driver, POL_SearchButton_UIB);
+				click(driver, POL_SearchButton_UIB);
+				twoColumnSearchWindow(driver, POL_Header, Condition, POL_Code);
+			}
+		}
+		if (blType.equalsIgnoreCase("Import")) {
+			if (!POD_code.trim().equals("")) {
+				waitForElement(driver, POD_SearchButton_UIB);
+				click(driver, POD_SearchButton_UIB);
+				twoColumnSearchWindow(driver, POD_Header, Condition, POD_code);
+			}
+			if (!PLD_Code.trim().equals("")) {
+				waitForElement(driver, PLD_SearchButton_UIB);
+				click(driver, PLD_SearchButton_UIB);
+				twoColumnSearchWindow(driver, PLD_Header, Condition, PLD_Code);
+			}
+		}
+
+		Step_End(9,
+				"Keep below is optional,(But need in Test Data)\r\n" + "Service,Vessel,Voyage,Bound,PLA,,POL,POD,PLD",
+				test, test1);
+
+		if (exclude_Checkbox.equalsIgnoreCase("Yes")) {
+			waitForElement(driver, exclude_Reversal_Checkbox_UIB);
+			click(driver, exclude_Reversal_Checkbox_UIB);
+		}
+
+		Step_Start(4, "Click on show button,", test, test1);
+
+		waitForElement(driver, show_button_uninvoiced);
+		click(driver, show_button_uninvoiced);
+
+		waitForElement(driver, bl_Type_Field);
+		String actualBL_Type = getText(driver, bl_Type_Field);
+		System.out.println("actualBL_Type : " + actualBL_Type);
+
+		Step_End(4, "Click on show button,", test, test1);
+		Step_Start(5, "Filter the BL NO in BL/MCN NO Column.", test, test1);
+
+		waitForElement(driver, MoreOption_Grid);
+		click(driver, MoreOption_Grid);
+
+		waitForElement(driver, conditionFilter_UIB);
+		click(driver, conditionFilter_UIB);
+
+		if (blType.endsWith("All")) {
+			waitForElement(driver, bl_MCN_Filter_UIB);
+			sendKeys(driver, bl_MCN_Filter_UIB, bl_Number);
+
+		} else {
+			if (bl_RadioButton.equalsIgnoreCase("Yes")) {
+
+				waitForElement(driver, bl_Number_Filter_UIB);
+				sendKeys(driver, bl_Number_Filter_UIB, bl_Number);
+
+			} else if (MCN_RadioButton.equalsIgnoreCase("Yes")) {
+
+				waitForElement(driver, MCN_Filter_UIB);
+				sendKeys(driver, MCN_Filter_UIB, bl_Number);
+			}
+		}
+
+		Step_End(5, "Filter the BL NO in BL/MCN NO Column.", test, test1);
+		Step_Start(6,"go to Columns Shipment type, Line Revenue–OFR,Line Revenue–Others,Agency Revenue, Total Revenue and Customer Code ,Copy the Details.",
+				test, test1);
+
+		
+		waitForElement(driver, unInvoiced_BL_Grid_Rows);
+		String actualInvoiceType = "";
+		String actual_BL_MCN_Number = "";
+
+		
+		if(!blType.equals("All")) {
+			actualInvoiceType=blType;
+			if (bl_RadioButton.equalsIgnoreCase("Yes")) {
+				waitForElement(driver, MCN_Column_Grid_UIB);
+				actual_BL_MCN_Number = getText(driver, MCN_Column_Grid_UIB);
+				System.out.println("actual_BL_MCN_Number : " + actual_BL_MCN_Number);
+			} else if (MCN_RadioButton.equalsIgnoreCase("Yes")) {
+				waitForElement(driver, MCN_Column_Grid_UIB);
+				actual_BL_MCN_Number = getText(driver, MCN_Column_Grid_UIB);
+				System.out.println("actual_BL_MCN_Number : " + actual_BL_MCN_Number);
+			}
+		}else {
+			waitForElement(driver, invoiceType_GridCell_UIB);
+			actualInvoiceType = getText(driver, invoiceType_GridCell_UIB);
+			System.out.println("actualInvoiceType : " + actualInvoiceType);	
+			
+			waitForElement(driver, BL_MCN_Column_UIB);
+			actual_BL_MCN_Number = getText(driver, BL_MCN_Column_UIB);
+			System.out.println("actual_BL_MCN_Number : " + actual_BL_MCN_Number);
+		}
+		
+		reArrangeAG_GridColumnsNew(driver, grid_Columns_Button_UIB, columnHeaders);
+
+		List<String> tableHeaders=splitAndExpand(columnHeaders,",");
+		waitForElement(driver, Uninvoiced_BL_Report_Table);
+		List<Map<String, String>> UnInvoiced_TableData = extractTableDataByColumn(driver, Uninvoiced_BL_Report_Table);
+		String UnInvoiced_Table_Data=TableDataForReport(driver,UnInvoiced_TableData,"UnInvoiced Table Data",tableHeaders);
+		
+		waitForElement(driver, lineRevenue_OFR_GridCell_UIB);
+		String actual_LineRevenue_OFR_UIB = getText(driver, lineRevenue_OFR_GridCell_UIB);
+		System.out.println("actual_LineRevenue_OFR : " + actual_LineRevenue_OFR_UIB);
+		String actual_Line_Revenue_OFR_STR = actual_LineRevenue_OFR_UIB.replace(",", "");
+		double actual_LineRevenue_OFR = Double.parseDouble(actual_Line_Revenue_OFR_STR);
+
+		Step_End(6,"go to Columns Shipment type, Line Revenue–OFR,Line Revenue–Others,Agency Revenue, Total Revenue and Customer Code ,Copy the Details.",
+				test, test1);
+
+		Extent_call(test, test1, "In BL/MCN No column has Only the BL NO then Open BL of lading module,");
+
+		if (!actual_BL_MCN_Number.contains("<-->") ) { // AE00216200<-->AE00216200CV3
+
+			scrollTop(driver);
+
+			Step_Start(7, "Open Bill of Lading module", test, test1);
+
+			Extent_cal(test, test1, module_BillOfLading);
+			moduleNavigate(driver, module_BillOfLading);
+
+			Step_End(7, "Open Bill of Lading module", test, test1);
+			Step_Start(8, "Load the same BL Number", test, test1);
+
+			waitForElement(driver, SearchButton_Toolbar);
+			click(driver, SearchButton_Toolbar);
+			waitForElement(driver, SearchButton_Toolbar);
+
+			globalValueSearchWindow(driver, globalSearchCondition, Select_Search_Type_BOL, bl_Number, "", "", "", "");
+
+			Step_End(8, "Load the same BL Number", test, test1);
+			Step_Start(9, "Go to Customer Tab,", test, test1);
+
+			waitForElement(driver, blNo_Textfield_BOL);
+
+			Extent_call(test, test1, "Compare Values For Line Revenue–OFR");
+
+			Step_Start(11, "Go to charges tab.", test, test1);
+
+			waitForElement(driver, billOfLading_ChargesTab);
+			click(driver, billOfLading_ChargesTab);
+
+			waitForElement(driver, chargesTab_Rows_BOL);
+
+			List<Map<String, String>> billOfLading_Charges = getTableDatawithscroll(driver, chargesTab_Coloumns_BOL,
+					chargesTab_Rows_BOL, billOfLading_ChargesTab_Scroll, 80, -2500);
+			List<String> BOL_columnheaders_Charges = splitAndExpand(BOL_Charge_Table_Headers_For_Report);
+			String BOL_Charges_Tabledata = TableDataForReport(driver, billOfLading_Charges, "Bill Of Lading Charges table",
+					BOL_columnheaders_Charges);
+			
+			Step_End(11, "Go to charges tab.", test, test1);
+
+			Step_Start(12,
+					"Shipment type has Export Invoice Find the Payment Mode Values as Prepaid and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			Extent_call(test, test1, "Compare Values For Line Revenue–OFR.");
+
+			double amount_BOL = 0;
+
+			if (blType.equals("Export") || actualInvoiceType.equals("Export Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Export Invoice", test, test1);
+				amount_BOL = getValuesByFirstTwoColumnAndHeader(billOfLading_Charges, "Charge Code", "OFR",
+						"Payment Mode", "Prepaid", "Amount In USD");
+
+				if (amount_BOL == 0) {
+					amount_BOL = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_BOL);
+			}
+
+			Step_End(12,"Shipment type has Export Invoice Find the Payment Mode Values as Prepaid and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			Step_Start(13,"Shipment type has Import Invoice Find the Payment Mode Values as Collect and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			if (blType.equals("Import") || actualInvoiceType.equals("Import Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Import Invoice", test, test1);
+				amount_BOL = getValuesByFirstTwoColumnAndHeader(billOfLading_Charges, "Charge Code", "OFR",
+						"Payment Mode", "Collect", "Amount In USD");
+
+				if (amount_BOL == 0) {
+					amount_BOL = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_BOL);
+			}
+
+			Step_End(13,"Shipment type has Import Invoice Find the Payment Mode Values as Collect and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+			Step_Start(14,"Shipment type has Cross Invoice Find the Payment Mode Values as Payat and Charge code has OFR GO to Amount in USD and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL ",
+					test, test1);
+
+			if (actualInvoiceType.equals("Cross Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Cross Invoice", test, test1);
+
+				double amount_BOL1 = getValuesByFirstTwoColumnAndHeader(billOfLading_Charges, "Charge Code", "OFR",
+						"Payment Mode", "PayAt-Prepaid", "Amount In USD");
+				
+				double amount_BOL2 = getValuesByFirstTwoColumnAndHeader(billOfLading_Charges, "Charge Code", "OFR",
+						"Payment Mode", "PayAt-Collect", "Amount In USD");
+				
+				double amount_BOL3 = getValuesByFirstTwoColumnAndHeader(billOfLading_Charges, "Charge Code", "OFR",
+						"Payment Mode", "PayAt", "Amount In USD");
+
+				amount_BOL=amount_BOL1+amount_BOL2+amount_BOL3;
+				
+				if (amount_BOL == 0) {
+					amount_BOL = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_BOL);
+			}
+			Extent_pass_New(driver, " BOL Charges Table : "+BOL_Charges_Tabledata, test, test1);
+			Extent_pass_New(driver,"Un Invoiced BL Report Table"+UnInvoiced_Table_Data,test,test1);
+			
+			if (actual_LineRevenue_OFR == amount_BOL) {
+				System.out.println("Matched || Bill of lading Line Revevenue OFR : " + amount_BOL
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR);
+				Extent_pass_New(driver, "Matched || Bill of lading Line Revevenue OFR : " + amount_BOL
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR, test, test1);
+			} else {
+				System.out.println("Not Matched || Bill of lading Line Revevenue OFR : " + amount_BOL
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR);
+				Extent_fail(driver, "Not Matched || Bill of lading Line Revevenue OFR : " + amount_BOL
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR, test, test1);
+			}
+
+			Step_End(14,
+					"Shipment type has Cross Invoice Find the Payment Mode Values as Payat and Charge code has OFR GO to Amount in USD and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL",
+					test, test1);
+
+			
+			Step_Start(15,
+					"Shipment type has Export Invoice Find the Payment Mode Values as Prepaid and and charge Mode as N and Ignore OFR  AMT GO to Amount in USD .\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple charges is avaiable system has to sum and compare Line Revenue–Others values in uninvoiced BL.",
+					test, test1);
+			
+		} else if (actual_BL_MCN_Number.contains("<-->") || MCN_RadioButton.equalsIgnoreCase("Yes")) {
+
+			Extent_call(test, test1, "\r\n"
+					+ "In BL/MCN No Column has Both BL and MCN No then Open MCN Module(In-case of multiple MCN system has to go to latest MCN");
+
+			String actual_Number[] = actual_BL_MCN_Number.split(">");
+			String actual_BL_MCN_Number_UIB = actual_Number[1];
+			System.out.println("actual_BL_MCN_Number_UIB : " + actual_BL_MCN_Number_UIB);
+
+			scrollTop(driver);
+			Extent_cal(test, test1, MCN_Module);
+			moduleNavigate(driver, MCN_Module);
+
+			waitForElement(driver, SearchButton_Toolbar);
+
+			click(driver, SearchButton_Toolbar);
+			waitForElement(driver, globalSearch_Condition_Dropdown1);
+
+			globalValueSearchWindow(driver, globalSearchCondition, Select_Search_Type_MCN, actual_BL_MCN_Number_UIB, "",
+					"", "", "");
+
+
+			//		Charges tab
+			Step_Start(9, "Go to  charges tab.", test, test1);
+
+			waitForElement(driver, Manifest_Charges_Tab);
+			click(driver, Manifest_Charges_Tab);
+
+			Step_End(9, "Go to  charges tab.", test, test1);
+			waitForElement(driver, MCN_Charges_Table_Headers);
+			waitForElement(driver, MCN_Charges_Table_Rows);
+			List<Map<String, String>> MCN_Charges = getTableData(driver, MCN_Charges_Table_Headers,MCN_Charges_Table_Rows);
+			List<String> MCN_columnheaders_Charges = splitAndExpand(MCN_Charges_Table_Header);
+			String MCN_Charges_Tabledata = TableDataForReport(driver, MCN_Charges, MCN_ChargesTable_Name,
+					MCN_columnheaders_Charges);
+			
+
+			//	Line Revenue–OFR
+
+			Step_Start(10,	"Shipment type has Export Invoice Find the Payment Mode Values as Prepaid and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			Extent_call(test, test1, "Compare Values For Line Revenue–OFR.");
+
+			double amount_MCN = 0;
+
+			if (blType.equals("Export") || actualInvoiceType.equals("Export Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Export Invoice", test, test1);
+
+				amount_MCN = getValuesByFirstTwoColumnAndHeader(MCN_Charges, "Charge Code", "OFR", "Payment Mode",
+						"Prepaid", "Amount in USD");
+
+				if (amount_MCN == 0) {
+					amount_MCN = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_MCN);
+			}
+
+			Step_End(10,"Shipment type has Export Invoice Find the Payment Mode Values as Prepaid and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			Step_Start(11,"Shipment type has Import Invoice Find the Payment Mode Values as Collect and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+
+			if (blType.equals("Import") || actualInvoiceType.equals("Import Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Import Invoice", test, test1);
+
+				amount_MCN = getValuesByFirstTwoColumnAndHeader(MCN_Charges, "Charge Code", "OFR", "Payment Mode",
+						"Collect", "Amount in USD");
+
+				if (amount_MCN == 0) {
+					amount_MCN = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_MCN);
+			}
+
+			Step_End(11,"Shipment type has Import Invoice Find the Payment Mode Values as Collect and Charge code has OFR GO to Amount in USD.\r\n"
+							+ "and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL.",
+					test, test1);
+			Step_Start(12,
+					"Shipment type has Cross Invoice Find the Payment Mode Values as Payat and Charge code has OFR GO to Amount in USD and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL ",
+					test, test1);
+
+			if (actualInvoiceType.equals("Cross Invoice")) {
+
+				Extent_pass_New(driver, "Shipment type is Cross Invoice", test, test1);
+
+				double amount_MCN1 = getValuesByFirstTwoColumnAndHeader(MCN_Charges, "Charge Code", "OFR", "Payment Mode",
+						"PayAt-Collect", "Amount in USD");
+
+				double amount_MCN2 = getValuesByFirstTwoColumnAndHeader(MCN_Charges, "Charge Code", "OFR", "Payment Mode",
+						"PayAt-Prepaid", "Amount in USD");
+				
+				double amount_MCN3 = getValuesByFirstTwoColumnAndHeader(MCN_Charges, "Charge Code", "OFR", "Payment Mode",
+						"PayAt", "Amount in USD");
+				
+				amount_MCN=amount_MCN1+amount_MCN2+amount_MCN3;
+				
+				if (amount_MCN == 0) {
+					amount_MCN = 0.00;
+				}
+
+				System.out.println("amount_BOL : " + amount_MCN);
+			}
+
+			Extent_pass_New(driver, " MCN Charges Table : "+MCN_Charges_Tabledata, test, test1);
+			Extent_pass_New(driver,"Un Invoiced BL Report Table"+UnInvoiced_Table_Data,test,test1);
+			
+			if (actual_LineRevenue_OFR == amount_MCN) {
+				System.out.println("Matched || MCN Line Revevenue OFR : " + amount_MCN
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR);
+				Extent_pass_New(driver, "Matched || MCN Line Revevenue OFR : " + amount_MCN
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR, test, test1);
+			} else {
+				System.out.println("Not Matched || MCN Line Revevenue OFR : " + amount_MCN
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR);
+				Extent_fail(driver, "Not Matched || MCN Line Revevenue OFR : " + amount_MCN
+						+ " || Line Revevenue OFR in Uninvoiced BL Report : " + actual_LineRevenue_OFR, test, test1);
+			}
+
+			Step_End(12,"Shipment type has Cross Invoice Find the Payment Mode Values as Payat and Charge code has OFR GO to Amount in USD and compare both Uninvoiced  report and BL. If multiple OFR charge is avaiable system has to sum and compare Line Revenue–OFR valuesin uninvoiced BL",
+					test, test1);
+		}
+
+		Extent_completed(testcase_Name, test, test1);
+	}
+}

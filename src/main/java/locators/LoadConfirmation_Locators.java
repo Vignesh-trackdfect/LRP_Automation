@@ -1,0 +1,184 @@
+package locators;
+
+import java.util.Map;
+
+import commonMethods.Testcases;
+import commonMethods.Utils;
+
+public interface LoadConfirmation_Locators{
+	Map<String, String> ExcelData = Utils.getDataAsMap(Testcases.conection_vale, "LoadConfirmation", "Reference_Name",
+			Testcases.environmentName);
+
+	public static String agency_Code_Filter = ExcelData.get("agency_Code_Filter");
+	public static String search_click = ExcelData.get("search_click");
+	public static String Provisional_check_box = ExcelData.get("Provisional_check_box");
+	public static String Draft_check_box = ExcelData.get("Draft_check_box");
+	public static String Confirmed_check_box = ExcelData.get("Confirmed_check_box");
+	public static String Cancelled_check_box = ExcelData.get("Cancelled_check_box");
+	public static String Shipment_type_select = ExcelData.get("Shipment_type_select");
+	public static String actual_containerr = ExcelData.get("actual_containerr");
+	public static String date_select = ExcelData.get("date_select");
+	public static String Aselectbutton1 = ExcelData.get("Aselectbutton1");
+	public static String containsclick = ExcelData.get("containsclick");
+	public static String New_click = ExcelData.get("New_click");
+	public static String Booknumselect = ExcelData.get("Booknumselect");
+	public static String Select_Booking_DD = ExcelData.get("Select_Booking_DD");
+	public static String Select_Booking_all = ExcelData.get("Select_Booking_all");
+	public static String Add_ware_house = ExcelData.get("Add_ware_house");
+	public static String Add_ware_house_Gird = ExcelData.get("Add_ware_house_Gird");
+	public static String Date_click = ExcelData.get("Date_click");
+	public static String TDN_Bookin_Remarks_Tab = ExcelData.get("TDN_Bookin_Remarks_Tab");
+	public static String Month_DD = ExcelData.get("Month_DD");
+	public static String Year_DD = ExcelData.get("Year_DD");
+	public static String select_all = ExcelData.get("select_all");
+	public static String L_load_servicecode = ExcelData.get("L_load_servicecode");
+	public static String LC_load_servicecode = ExcelData.get("LC_load_servicecode");
+	public static String search_First_Click = ExcelData.get("search_First_Click");
+	public static String plus_Button_Agency_config = ExcelData.get("plus_Button_Agency_config");
+	public static String Transportation_dispatch_saved1 = ExcelData.get("Transportation_dispatch_saved1");
+	public static String minute_DD = ExcelData.get("minute_DD");
+	public static String activity_date = ExcelData.get("activity_date");
+	public static String discharge_activity_date = ExcelData.get("discharge_activity_date");
+	public static String load_status = ExcelData.get("load_status");
+	public static String return_location_searchbar = ExcelData.get("return_location_searchbar");
+	public static String return_location_searchicon = ExcelData.get("return_location_searchicon");
+	public static String location_Filter = ExcelData.get("location_Filter");
+	public static String Select_Option = ExcelData.get("Select_Option");
+	public static String service_Searchfield = ExcelData.get("service_Searchfield");
+	public static String L_VoyageInput = ExcelData.get("L_VoyageInput");
+	public static String L_Boundinpiut = ExcelData.get("L_Boundinpiut");
+	public static String L_vessel_Input = ExcelData.get("L_vessel_Input");
+	public static String L_portCode_Inputfield = ExcelData.get("L_portCode_Inputfield");
+	public static String L_terminalCode_Inputfield = ExcelData.get("L_terminalCode_Inputfield");
+	public static String L_select_Service = ExcelData.get("L_select_Service");
+	public static String L_show_Button = ExcelData.get("L_show_Button");
+	public static String LC_VoyageInput = ExcelData.get("LC_VoyageInput");
+	public static String LC_Boundinput = ExcelData.get("LC_Boundinput");
+	public static String LC_vessel_Input = ExcelData.get("LC_vessel_Input");
+	public static String LC_portCode_Inputfield = ExcelData.get("LC_portCode_Inputfield");
+	public static String LC_terminalCode_Inputfield = ExcelData.get("LC_terminalCode_Inputfield");
+	public static String LC_select_Service = ExcelData.get("LC_select_Service");
+	public static String LC_show_Button = ExcelData.get("LC_show_Button");
+	public static String bookingnumber = ExcelData.get("bookingnumber");
+	public static String selectall = ExcelData.get("selectall");
+	public static String loadconfirmation = ExcelData.get("loadconfirmation");
+	public static String container_no = ExcelData.get("container_no");
+	public static String container_no_discharge = ExcelData.get("container_no_discharge");
+	public static String actual_containerno_1 = ExcelData.get("actual_containerno_1");
+	public static String dischargeload_servicecode = ExcelData.get("dischargeload_servicecode");
+	public static String dischargevessel_Input = ExcelData.get("dischargevessel_Input");
+	public static String dischargevesselname_Input = ExcelData.get("dischargevesselname_Input");
+	public static String discharge_VoyageInput = ExcelData.get("discharge_VoyageInput");
+	public static String dischare_Boundinput = ExcelData.get("dischare_Boundinput");
+	public static String dischargeportCode_Inputfield = ExcelData.get("dischargeportCode_Inputfield");
+	public static String discharge_terminalCode_Inputfield = ExcelData.get("discharge_terminalCode_Inputfield");
+	public static String dischargeshow_Button = ExcelData.get("dischargeshow_Button");
+	public static String dischargeselectall = ExcelData.get("dischargeselectall");
+	public static String dischargeconfirmation_btn = ExcelData.get("dischargeconfirmation_btn");
+	public static String dischargeconfirmation_popup = ExcelData.get("dischargeconfirmation_popup");
+	public static String match_button = ExcelData.get("match_button");
+	public static String discharge_bookingnumber = ExcelData.get("discharge_bookingnumber");
+	public static String match_button_DC = ExcelData.get("match_button_DC");
+	public static String importexcel = ExcelData.get("importexcel");
+	public static String selectexcelfile = ExcelData.get("selectexcelfile");
+	public static String selectsheetname = ExcelData.get("selectsheetname");
+	public static String loadsheet = ExcelData.get("loadsheet");
+	public static String importexcel_yesbtn = ExcelData.get("importexcel_yesbtn");
+	public static String excelupload_button = ExcelData.get("excelupload_button");
+	public static String assignbutton = ExcelData.get("assignbutton");
+	public static String exportbutton = ExcelData.get("exportbutton");
+	public static String close_button = ExcelData.get("close_button");
+	public static String import_template = ExcelData.get("import_template");
+	public static String AssigningBtn = ExcelData.get("AssigningBtn");
+	public static String DischargeConfirmation_Tab = ExcelData.get("DischargeConfirmation_Tab");
+	public static String service_Searchfield_Discharge = ExcelData.get("service_Searchfield_Discharge");
+	public static String vessel_Input_Discharge = ExcelData.get("vessel_Input_Discharge");
+	public static String VoyageInput_Discharge = ExcelData.get("VoyageInput_Discharge");
+	public static String Boundinpiut_Discharge = ExcelData.get("Boundinpiut_Discharge");
+	public static String terminalCode_Inputfield_Discharge = ExcelData.get("terminalCode_Inputfield_Discharge");
+	public static String portCode_Inputfield_Discharge = ExcelData.get("portCode_Inputfield_Discharge");
+	public static String select_Service_Discharge = ExcelData.get("select_Service_Discharge");
+	public static String show_Button_Discharge = ExcelData.get("show_Button_Discharge");
+	public static String container_no_Discharge = ExcelData.get("container_no_Discharge");
+	public static String match_button_Discharge = ExcelData.get("match_button_Discharge");
+	public static String Dischargeconfirmation = ExcelData.get("Dischargeconfirmation");
+	public static String Book_number_btn = ExcelData.get("Book_number_btn");
+	public static String shipment_Dropdown = ExcelData.get("shipment_Dropdown");
+	public static String new_btn = ExcelData.get("new_btn");
+	public static String Terminalcode_search = ExcelData.get("Terminalcode_search");
+	public static String loadconfirmation_closebtn = ExcelData.get("loadconfirmation_closebtn");
+	public static String home_Page = ExcelData.get("home_Page");
+	public static String APassword_input = ExcelData.get("APassword_input");
+	public static String ALogin = ExcelData.get("ALogin");
+	public static String AHome_Logo = ExcelData.get("AHome_Logo");
+	public static String Module_SearchB = ExcelData.get("Module_SearchB");
+	public static String Booking_click = ExcelData.get("Booking_click");
+	public static String loadConfirmation_Tab = ExcelData.get("loadConfirmation_Tab");
+	public static String bookingNo_filter = ExcelData.get("bookingNo_filter");
+	public static String LC_bookingNo_filter = ExcelData.get("LC_bookingNo_filter");
+	public static String actualContainerNo_filter = ExcelData.get("actualContainerNo_filter");
+	public static String select_Checkbox = ExcelData.get("select_Checkbox");
+	public static String LC_select_Checkbox = ExcelData.get("LC_select_Checkbox");
+	public static String gridBookingNo = ExcelData.get("gridBookingNo");
+	public static String LC_gridBookingNo = ExcelData.get("LC_gridBookingNo");
+	public static String firstRow_loadConfirmGrid = ExcelData.get("firstRow_loadConfirmGrid");
+	public static String actualContainerNo_Editable = ExcelData.get("actualContainerNo_Editable");
+	public static String LC_actualContainerNo_Editable = ExcelData.get("LC_actualContainerNo_Editable");
+	public static String actualContainerNo_Inputfield = ExcelData.get("actualContainerNo_Inputfield");
+	public static String LC_actualContainerNo_Inputfield = ExcelData.get("LC_actualContainerNo_Inputfield");
+	public static String actualContainerNo_Inputfield2 = ExcelData.get("actualContainerNo_Inputfield2");
+	public static String L_loadConfirmation_Button = ExcelData.get("L_loadConfirmation_Button");
+	public static String LC_loadConfirmation_Button = ExcelData.get("LC_loadConfirmation_Button");
+	public static String loadConfirmation_Popup = ExcelData.get("loadConfirmation_Popup");
+	public static String loadConfirmation_Popup_Ok = ExcelData.get("loadConfirmation_Popup_Ok");
+	public static String activityDate_LoadConfirm = ExcelData.get("activityDate_LoadConfirm");
+	public static String selectrouting = ExcelData.get("selectrouting");
+	public static String selectrouting1 = ExcelData.get("selectrouting1");
+	public static String schedule_routing_popup = ExcelData.get("schedule_routing_popup");
+	public static String Booking_Id = ExcelData.get("Booking_Id");
+	public static String Non_Containerized = ExcelData.get("Non_Containerized");
+	public static String Checkbox_1 = ExcelData.get("Checkbox_1");
+	public static String Load_Confirmation = ExcelData.get("Load_Confirmation");
+	public static String Confirmation_popup = ExcelData.get("Confirmation_popup");
+	public static String Shipment_type_input = ExcelData.get("Shipment_type_input");
+	public static String Select_all = ExcelData.get("Select_all");
+	public static String VIN_Chassis_No = ExcelData.get("VIN_Chassis_No");
+	public static String Match = ExcelData.get("Match");
+	public static String Discharge_Confirmation = ExcelData.get("Discharge_Confirmation");
+	public static String Discharge_Confirmation_Tab = ExcelData.get("Discharge_Confirmation_Tab");
+	public static String Match1 = ExcelData.get("Match1");
+	public static String service_Searchfield1 = ExcelData.get("service_Searchfield1");
+	public static String vessel_Input1 = ExcelData.get("vessel_Input1");
+	public static String VoyageInput1 = ExcelData.get("VoyageInput1");
+	public static String Boundinpiut1 = ExcelData.get("Boundinpiut1");
+	public static String Numberofcontainerr = ExcelData.get("Numberofcontainerr");
+	public static String assigningg = ExcelData.get("assigningg");
+	public static String sheet_namee = ExcelData.get("sheet_namee");
+	public static String dest_Checkboxx = ExcelData.get("dest_Checkboxx");
+	public static String base_Container_Field = ExcelData.get("base_Container_Field");
+	public static String agny_config_click = ExcelData.get("agny_config_click");
+	public static String load_close = ExcelData.get("load_close");
+	public static String L_loadConfirmation_Tab = ExcelData.get("L_loadConfirmation_Tab");
+	public static String L_service_Searchfield = ExcelData.get("L_service_Searchfield");
+	public static String L_enable_status = ExcelData.get("L_enable_status");
+	public static String Containerr = ExcelData.get("Containerr");
+	public static String select_All_Btn = ExcelData.get("select_All_Btn");
+	public static String error_validation = ExcelData.get("error_validation");
+	public static String dischargevessel_Input1 = ExcelData.get("dischargevessel_Input1");
+	public static String dischargevesselname_Input1 = ExcelData.get("dischargevesselname_Input1");
+	public static String discharge_VoyageInput1 = ExcelData.get("discharge_VoyageInput1");
+	public static String dischare_Boundinput1 = ExcelData.get("dischare_Boundinput1");
+	public static String dischargeportCode_Inputfield1 = ExcelData.get("dischargeportCode_Inputfield1");
+	public static String discharge_terminalCode_Inputfield1 = ExcelData.get("discharge_terminalCode_Inputfield1");
+	public static String con_noncon_button = ExcelData.get("con_noncon_button");
+
+
+}
+
+
+
+
+
+
+
+

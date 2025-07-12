@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2117" total="2118" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-13T02:22:47 IST" name="Suite" finished-at="2025-07-13T02:26:42 IST" duration-ms="235114">
+    <groups>
+    </groups>
+    <test started-at="2025-07-13T02:22:47 IST" name="Test" finished-at="2025-07-13T02:26:42 IST" duration-ms="235114">
+      <class name="commonMethods.Testcases">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:22:46 IST" name="setUp" finished-at="2025-07-13T02:22:47 IST" duration-ms="815" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="Extentreport()[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:22:47 IST" name="Extentreport" finished-at="2025-07-13T02:22:47 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Extentreport -->
+        <test-method is-config="true" signature="getDataFromConfig()[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:22:47 IST" name="getDataFromConfig" finished-at="2025-07-13T02:22:47 IST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDataFromConfig -->
+        <test-method signature="TC_Charge_Detail_Report_SC041C()[pri:1016, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:22:47 IST" name="TC_Charge_Detail_Report_SC041C" finished-at="2025-07-13T02:26:42 IST" duration-ms="234959" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_Charge_Detail_Report_SC041C -->
+        <test-method is-config="true" signature="Teardown(org.testng.ITestResult)[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:26:42 IST" name="Teardown" finished-at="2025-07-13T02:26:42 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC_Charge_Detail_Report_SC041C status=SUCCESS method=Testcases.TC_Charge_Detail_Report_SC041C()[pri:1016, instance:commonMethods.Testcases@9d200de] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method is-config="true" signature="aftertest()[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:26:42 IST" name="aftertest" finished-at="2025-07-13T02:26:42 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftertest -->
+        <test-method is-config="true" signature="generateReport()[pri:0, instance:commonMethods.Testcases@9d200de]" started-at="2025-07-13T02:26:42 IST" name="generateReport" finished-at="2025-07-13T02:26:42 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateReport -->
+      </class> <!-- commonMethods.Testcases -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

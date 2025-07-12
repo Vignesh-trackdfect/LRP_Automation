@@ -1,0 +1,371 @@
+package LRP_Commercial_Rate_Request_Scripts;
+
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+
+import com.aventstack.extentreports.ExtentTest;
+
+import commonMethods.Keywords;
+
+
+
+public class TC_Rate_Request_SC22 extends Keywords{
+
+	public void rate_Request_Sc22(WebDriver driver, ExtentTest test, ExtentTest test1,String selected_dataset,Map<String, String> Excel_data,String url){
+
+
+		String tc_Name="TC_Rate_Request_SC22";
+
+		
+		
+		
+		String status_value=Excel_data.get("Status");	
+		String module2=Excel_data.get("search_module2");
+		String user_Name = Excel_data.get("Username");
+		String pass_word =Excel_data.get("PassWord");
+		String Field_Names =Excel_data.get("field_name");
+		String Eqp_Type_Input =Excel_data.get("Eqp_Type_Input");
+		String Gross_Weight_Input =Excel_data.get("Gross_Weight_Input");
+		String Exp_Det_Days_Input =Excel_data.get("Exp_Det_Days_Input");
+		String Imp_Det_Days_Input =Excel_data.get("Imp_Det_Days_Input");
+		String Exp_Demmurage_Input =Excel_data.get("Exp_Demmurage_Input");
+		String Imp_Demmurage_Input =Excel_data.get("Imp_Demmurage_Input");
+		String commodity =Excel_data.get("Commodity");
+		String ofrGreater =Excel_data.get("OFRGreater");
+		String DG_checkboxs = Excel_data.get("DG_checkboxs");
+		String NOR_checkbox = Excel_data.get("NOR_checkbox");
+		String SOC_checkbox = Excel_data.get("SOC_checkbox");
+		String OOG_checkbox = Excel_data.get("OOG_checkbox");
+		String agencyUser = Excel_data.get("agencyUser");
+		String Origin_Input = Excel_data.get("Origin_Input");
+		String Delivery_Input1 = Excel_data.get("Dehlivery_Input");
+		String Non_Containerized = Excel_data.get("Non_Containerized");
+		String Customer_Code = Excel_data.get("Cust_code");
+		String Condition_Value = Excel_data.get("Condition_Value");
+		String Customer_code_Value = Excel_data.get("Customer_code_Value");
+		String Routing_Service = Excel_data.get("Routing_Service");
+		String Pre_Carriage_Radiobtn = Excel_data.get("pre_Carriage_Radiobtn");
+		String On_Carriage_Radiobtn = Excel_data.get("On_Carriage_Radiobtn");
+		String DatePicker = Excel_data.get("DatePicker");
+		String From_date = Excel_data.get("From_date");
+		String To_date = Excel_data.get("To_date");
+		String Rate_Request_NO = Excel_data.get("Rate_Request_NO");
+		String Do_You_Want_Delete = Excel_data.get("Do_You_Want_Delete");
+		String tService = Excel_data.get("T_Service");
+		String TOS=Excel_data.get("TOS_Option");
+		String Eqp_Quantity_Input =Excel_data.get("Eqp_Quantity_Input");
+		String Customer_code_Value2 = Excel_data.get("Customer_code_Value2");
+		String Customer_code_Value3 = Excel_data.get("Customer_code_Value3");
+		String Cust_code2 = Excel_data.get("Cust_code2");
+		String Cust_code3 = Excel_data.get("Cust_code3");
+		String date_Perform = Excel_data.get("date_Perform");
+		String Flexi_CheckBox = Excel_data.get("Flexi_CheckBox");
+		String MTY_CheckBox = Excel_data.get("MTY_CheckBox");
+		String payment_Mode = Excel_data.get("payment_Mode");
+		String Select_type_location = Excel_data.get("Select_type_location");
+		String condition = Excel_data.get("condition");
+		String payLocation =Excel_data.get("payLocation");
+
+		Extent_Start(tc_Name, test, test1);
+		navigateUrl(driver, url);
+		//Login
+		LRP_Login(driver, user_Name, pass_word);
+
+
+
+		//Switch User
+		SwitchProfile(driver, agencyUser);
+
+		//Module search
+		moduleNavigate(driver, Field_Names);
+		Step_Start(1, "Click on the new button in the toolbar", test, test1);
+
+		waitForElement(driver, Requet_Type);
+newButton(driver);
+
+		Step_End(1, "Click on the new button in the toolbar", test, test1);
+		if(!tService.equals("")) {
+			waitForElement(driver, tService_Dropdown);
+			click(driver, tService_Dropdown);
+			formatLocatorClick(driver, DropDown_Select, tService);
+		}
+		if(!TOS.equals("")) {
+			waitForElement(driver, RR_TOS_Dropdown);
+			click(driver, RR_TOS_Dropdown);
+			formatLocatorClick(driver, DropDown_Select, TOS);
+		}
+
+		// non containerized radio btn
+
+		if (Non_Containerized.equals("YES")) {
+			waitForElement(driver, non_containradio_btn);
+			safeclick(driver, non_containradio_btn);
+		}
+
+
+		Step_Start(2, "Enter the customer name", test, test1);
+
+		waitForElement(driver, Customer_Name_search_button);
+		click(driver, Customer_Name_search_button);
+
+		globalValueSearchWindow(driver, Condition_Value, Customer_Code, Customer_code_Value, Cust_code2, Customer_code_Value2,Cust_code3, Customer_code_Value3);
+
+			rateRequestCustomerExistOption(driver);
+			Step_Start(3, "Enter the origin", test, test1);
+
+			waitForElement(driver, Orgin_Input);
+			sendKeys(driver, Orgin_Input, Origin_Input);
+
+			waitForElement(driver, Auto_Panel_First);
+			click(driver, Auto_Panel_First);
+
+			Step_End(3, "Enter the origin", test, test1);
+
+			Step_Start(4, "Enter the Delivery", test, test1);
+
+			waitForElement(driver, Delivery_Input_Field);
+			sendKeys(driver, Delivery_Input_Field, Delivery_Input1);
+			waitForElement(driver, Auto_Panel_First);
+			click(driver, Auto_Panel_First);
+
+			Step_End(4, "Enter the Delivery", test, test1);
+
+			Step_Start(5, "Enter the Commodity", test, test1);
+
+			waitForElement(driver, Commodity_Input);
+			Newclear(driver, Commodity_Input);
+		Actionsendkeys(driver, Commodity_Input, commodity);
+			waitForElement(driver, Auto_Panel_First);
+			click(driver, Auto_Panel_First);
+
+			Step_End(5, "Enter the Commodity", test, test1);
+
+			Step_Start(6, "Enter the rate calculation type", test, test1);
+
+
+			waitForElement(driver, Eqp_Type);
+			click(driver, Eqp_Type);
+			sendKeys(driver, Eqp_Type, Eqp_Type_Input);
+
+			waitForElement(driver, Auto_Panel_First);
+			click(driver, Auto_Panel_First);
+
+			Step_End(6, "Enter the rate calculation type", test, test1);
+
+			Step_Start(7, "Enter the Quantity", test, test1);
+
+			waitForElement(driver, Eqp_Quantity);
+			click(driver, Eqp_Quantity);
+			Newclear(driver, Eqp_Quantity);
+			Actionsendkeys(driver, Eqp_Quantity,Eqp_Quantity_Input);
+
+			Step_End(7, "Enter the Quantity", test, test1);
+			Step_Start(8, "Enter the Gross Weight", test, test1);
+
+			waitForElement(driver, RR_Gross_Weight);
+			Newclear(driver, RR_Gross_Weight);
+			Actionsendkeys(driver, RR_Gross_Weight, Gross_Weight_Input);
+
+			Step_End(8, "Enter the Gross Weight", test, test1);
+			// Selecting the From Date
+
+			rateRequestDateSelect(driver, date_Perform, DatePicker, From_date, To_date);
+
+			//checkboxs
+			checkBox(driver, DG_checkbox, DG_checkboxs);
+			checkBox(driver, oog_checkbox, OOG_checkbox);
+			checkBox(driver, nor_checkbox, NOR_checkbox);
+			waitForDisplay(driver, flexi_Checkbox_RR);
+			if(isdisplayed(driver, flexi_Checkbox_RR)) {
+				checkBox(driver, flexi_Checkbox_RR, Flexi_CheckBox);
+			}
+			waitForDisplay(driver, empty_Checkbox_RR);
+			if(isdisplayed(driver, empty_Checkbox_RR)) {
+				checkBox(driver, empty_Checkbox_RR, MTY_CheckBox);
+			}
+			checkBox(driver, soc_checkbox, SOC_checkbox);
+			//Pre Carriage radio btn
+			if(!Pre_Carriage_Radiobtn.equals("")) {
+				formatLocatorClick(driver, pre_Carriage_Radiobtn, Pre_Carriage_Radiobtn);
+			}
+			if(!On_Carriage_Radiobtn.equals("")) {
+				formatLocatorClick(driver, on_Carriage_Radiobtn, On_Carriage_Radiobtn);
+			}
+
+			rateRequestRoutingDays(driver, Exp_Det_Days_Input, Imp_Det_Days_Input, Exp_Demmurage_Input, Imp_Demmurage_Input);
+			Step_Start(9, "Click routing", test, test1);
+			waitForElement(driver, Routing_Button);
+			click(driver, Routing_Button);
+			Step_End(9, "Click routing", test, test1);
+			Step_Start(10, "Select the routing", test, test1);
+			waitForElement(driver, routingSearch_Frame);
+			String actRoutingFrame=getText(driver, routingSearch_Frame);
+			if(isDisplayed(driver, routingSearch_Frame)) {
+				Extent_pass_New(driver, actRoutingFrame+" is displayed", test,test1);
+				System.out.println(actRoutingFrame+" is displayed");
+				waitForElement(driver, Routing_ToolPannel);
+				safeclick(driver, Routing_ToolPannel);
+				waitForElement(driver, Routing_condition_Filter);
+				safeclick(driver, Routing_condition_Filter);
+				waitForElement(driver, Routing_OriginTF);
+				sendKeys(driver, Routing_OriginTF, Origin_Input);
+				waitForElement(driver, Routing_service_TF);
+				sendKeys(driver, Routing_service_TF, Routing_Service);
+				waitForElement(driver, select_First_Routing);
+				doubleClick(driver, select_First_Routing);
+			}else {
+				System.out.println(actRoutingFrame+" is not displayed");
+
+				Extent_fail(driver, actRoutingFrame+" is not displayed", test,test1);
+			}
+
+
+			Step_End(10, "Select the routing", test, test1);
+			rateRequestPaymentMode_Select(driver, payment_Mode,Select_type_location, condition, payLocation);
+			Step_Start(11, "Enter the OFR greater than the tariff", test, test1);
+
+
+			waitForElement(driver, OFR_Txt_Field);
+			click(driver, OFR_Txt_Field);
+			clear(driver, OFR_Txt_Field);
+			sendKeys(driver, OFR_Txt_Field, ofrGreater);
+
+
+			Step_End(11, "Enter the OFR greater than the tariff", test, test1);
+
+			Step_Start(12, "Click Add", test, test1);
+
+			waitForElement(driver, Rate_AddBtn);
+			click(driver, Rate_AddBtn);
+
+			Step_End(12, "Click Add", test, test1);
+
+			waitForElement(driver, SaveButton_ToolBar);
+			click(driver, SaveButton_ToolBar);
+			waitForElement(driver, Rate_SubmitBtn);
+			click(driver, Rate_SubmitBtn);
+			waitForElement(driver, popup_Message_Yes_Button); 
+			click(driver, popup_Message_Yes_Button);
+
+			waitForElement(driver, status_Field);
+			String status=getAttribute(driver, status_Field, "value");
+			if(status.equals(status_value)) {
+				System.out.println("Rate Request Submitted");
+				System.out.println("Matched || Expected value was : "+status_value+" || Actual value was : "+status);
+				Extent_pass_New(driver, "Matched || Expected value was : "+status_value+" || Actual value was : "+status, test,test1);
+			}
+			else {
+				System.out.println("Not Matched || Expected value was : "+status_value+" || Actual value was : "+status);
+				Extent_fail(driver,  "Not Matched || Expected value was : "+status_value+" || Actual value was : "+status, test,test1);
+			}
+
+			waitForElement(driver, reqNo_Textfield);
+			String reqno=getAttribute(driver, reqNo_Textfield, "value");
+			System.out.println(reqno);
+			waitForDisplay(driver, Mail_Cancel_button);
+		if(isdisplayed(driver, Mail_Cancel_button)) {
+		click(driver, Mail_Cancel_button);
+		}
+
+			if(Do_You_Want_Delete.equalsIgnoreCase("Yes")) {
+				Extent_call(test, test1, "Rate request Delete Started");
+
+				waitForElement(driver, Close_Current_tab);
+				click(driver, Close_Current_tab);	
+
+				//delete the rate request
+				moduleNavigate(driver, module2);
+
+
+
+				click(driver, submit_RadioButton);
+
+				waitForElement(driver, menu_Icon_Grid);
+				click(driver, menu_Icon_Grid);
+
+				waitForElement(driver, filter_Icon_Grid);
+				click(driver, filter_Icon_Grid);
+
+				waitForElement(driver, filter_Inputfield);
+				click(driver, filter_Inputfield);
+				sendKeys(driver, filter_Inputfield, reqno);
+				enter(driver);
+
+				waitForElement(driver, select_Actual_ReqNo);
+				String submitted_ReqNum=getText(driver, select_Actual_ReqNo);
+				if(submitted_ReqNum.equals(reqno)) {
+					System.out.println("Matched || " + " Expected Value is : " + reqno + " || Actual Value is : " + submitted_ReqNum);
+					Extent_pass_New(driver,"Matched || " + " Expected Value is : " + reqno + " || ActualValue is : " + submitted_ReqNum,test, test1);
+
+					click(driver, select_Actual_ReqNo);
+					waitForElement(driver, select_Actual_ReqNo);
+					RightClick(driver, select_Actual_ReqNo);
+					waitForElement(driver, moveTo_Pending);
+					click(driver, moveTo_Pending);
+					waitForElement(driver, close_Moved_Pending_Popup);
+					click(driver, close_Moved_Pending_Popup);
+
+					System.out.println(reqno+" Moved to Pending");
+					Extent_pass_New(driver, reqno+" Moved to Pending", test, test1);
+
+				}else {
+					System.out.println("Not matched || " + " Expected Value is : " + reqno + " || Actual Value  is : " + submitted_ReqNum);
+					Extent_fail(driver,"Not matched || " + " Expected Value is : " + reqno + " || Actual Value is : " + submitted_ReqNum,test, test1);
+				}		
+				//Pending	
+				waitForElement(driver, pending_RadioButton);
+				click(driver, pending_RadioButton);
+
+				waitForElement(driver, menu_Icon_Grid);
+				click(driver, menu_Icon_Grid);
+
+				waitForElement(driver, filter_Icon_Grid);
+				click(driver, filter_Icon_Grid);
+
+				waitForElement(driver, filter_Inputfield);
+				click(driver, filter_Inputfield);
+
+				sendKeys(driver, filter_Inputfield, reqno);
+				enter(driver);
+
+
+				waitForElement(driver, select_Actual_ReqNo);
+				String pending_ReqNum=getText(driver, select_Actual_ReqNo);
+				if(pending_ReqNum.equals(reqno)) {
+					System.out.println("Matched || " + " Expected Value is : " + reqno + " || Actual Value is : " + pending_ReqNum);
+					Extent_pass_New(driver,"Matched || " + " Expected Value is : " + reqno + " || ActualValue is : " + pending_ReqNum,test, test1);
+
+					click(driver, select_Actual_ReqNo);
+					waitForElement(driver, select_Actual_ReqNo);
+					doubleClick(driver, select_Actual_ReqNo);
+
+					waitForElement(driver, cancel_Common_btn);
+					click(driver, cancel_Common_btn);
+					waitForElement(driver, SearchButton_Toolbar);
+					click(driver, SearchButton_Toolbar);
+					globalValueSearchWindow(driver, Condition_Value,Rate_Request_NO,reqno,"", "", "","");
+
+
+
+					waitForElement(driver, Delete_button_toolBar);
+					click(driver, Delete_button_toolBar);
+
+					System.out.println(reqno+" Opened in Rate Request tab");
+					Extent_pass_New(driver, reqno+" Opened in Rate Request tab", test, test1);
+
+				}else {
+					System.out.println("Not matched || " + " Expected Value is : " + reqno + " || Actual Value  is : " + pending_ReqNum);
+					Extent_fail(driver,"Not matched || " + " Expected Value is : " + reqno + " || Actual Value is : " + pending_ReqNum,test, test1);
+				}		
+
+				waitForElement(driver, delete_Request_Popup);
+				click(driver, delete_Request_Popup_Ok);
+				waitForElement(driver, comment_Ok_Button);
+				click(driver, comment_Ok_Button);
+				Extent_call(test, test1, "Rate request Delete Ended");
+			}
+			Extent_completed(tc_Name, test, test1);
+	}
+
+}

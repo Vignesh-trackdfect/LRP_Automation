@@ -1,0 +1,49 @@
+name: LRP Automation CI
+
+on:
+  workflow_dispatch: 
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  #schedule:
+    #- cron: '*/15 * * * *'  # Every 15 minutes
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.0.0
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4.0.0
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Install Dependencies
+      run: |
+        choco install googlechrome
+        choco install chromium-chromedriver
+        choco install wget
+
+    - name: Build with Maven
+      env:
+        MAVEN_OPTS: '-Xmx1536m --add-opens jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac=ALL-UNNAMED'
+      run: mvn -B package --file pom.xml -DskipTests
+
+    - name: Run TestNG Tests
+      env:
+        MAVEN_OPTS: '-Xmx2048m --add-opens jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac=ALL-UNNAMED'
+      run: mvn test
+      continue-on-error: true  # Ignore failure for this step
+
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: Extent_Report
+        path: "Extent_Report"  # Adjust this path to where the report is generated
+      continue-on-error: true  # Ignore failure for this step

@@ -42,7 +42,7 @@ jobs:
       continue-on-error: true  # Ignore failure for this step
 
     - name: Upload Test Report
-      uses: actions/upload-artifact@v3.0.0
+      uses: actions/upload-artifact@4
       with:
         name: Extent_Report
         path: "Extent_Report"  # Adjust this path to where the report is generated
